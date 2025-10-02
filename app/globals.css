@@ -4,6 +4,10 @@
   themes: light --default;
 }
 
+/* * {
+  font-family: var(--font-peyda), var(--font-poppins), sans-serif;
+} */
+
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
