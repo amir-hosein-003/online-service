@@ -1,5 +1,5 @@
 import Link from "next/link";
-import React from "react";
+
 import Icon from "../ui/icon";
 
 type Comment = {

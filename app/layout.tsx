@@ -1,8 +1,10 @@
+import type { Metadata } from "next";
 import localFont from "next/font/local";
 import { Poppins } from "next/font/google";
-import type { Metadata } from "next";
+
 import "./globals.css";
 import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 const peyda = localFont({
   src: [
@@ -72,6 +74,7 @@ export default function RootLayout({
       >
         <Navbar />
         {children}
+        <Footer />
       </body>
     </html>
   );

@@ -1,11 +1,11 @@
 import Image from "next/image";
+
 import RadialGlow from "../RadialGlow";
-import Link from "next/link";
 
 const HeroSection = () => {
   return (
     <section className="container mx-auto h-126 py-16 relative">
-      <RadialGlow className="left-8" />
+      <RadialGlow className="left-8 top-5" />
       <div className="h-full grid grid-cols-2">
         <div className="flex flex-col justify-center gap-6">
           <h1 className="text-4xl font-bold">
