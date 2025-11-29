@@ -37,8 +37,8 @@ const Navbar = () => {
           </Link>
         </div>
         <div className="flex items-center justify-end gap-2">
-          <button className="btn btn-primary">ورود</button>
-          <button className="btn btn-primary btn-soft">ثبت نام</button>
+          <button className="btn btn-primary rounded-md">ورود</button>
+          <button className="btn btn-primary btn-soft rounded-md">ثبت نام</button>
         </div>
       </div>
     </nav>

@@ -18,8 +18,8 @@ const HeroSection = () => {
             این دفعه کافی نت میاد خونه ات!😎
           </p>
           <div className="flex flex-row items-center gap-4">
-            <button className="btn btn-primary">ثبت سفارش</button>
-            <button className="btn btn-primary btn-soft">پشتیبانی</button>
+            <button className="btn btn-primary rounded-md">ثبت سفارش</button>
+            <button className="btn btn-primary btn-soft rounded-md">پشتیبانی</button>
           </div>
         </div>
         <Image
