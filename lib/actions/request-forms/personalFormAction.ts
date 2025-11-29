@@ -4,9 +4,10 @@ import {
   Personal,
   personalSchema,
 } from "@/lib/validation/requestForms/personalSchema";
-import { ActionData } from "../ActionData";
 import { connectDB } from "@/lib/db/connectDB";
 import categoryModel from "@/lib/db/models/categoryModel";
+
+import { ActionData } from "../ActionData";
 
 export async function savePersonalInformation(
   prevState: ActionData,

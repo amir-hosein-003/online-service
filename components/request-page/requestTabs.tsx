@@ -22,7 +22,7 @@ const RequestTabs = () => {
   const [currentTab, setCurrentTab] = useState("personal");
 
   return (
-    <section className="w-4xl h-126 mx-auto border-2 rounded-md shadow p-6 my-16">
+    <section className="w-4xl h-fit mx-auto border-2 rounded-md shadow p-6 my-16">
       <Tabs
         defaultValue="personal"
         value={currentTab}
