@@ -3,8 +3,6 @@ import localFont from "next/font/local";
 import { Poppins } from "next/font/google";
 
 import "./globals.css";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
 
 const peyda = localFont({
   src: [
@@ -72,9 +70,7 @@ export default function RootLayout({
         dir="rtl"
         className={`${peyda.variable} ${poppins.variable} antialiased`}
       >
-        <Navbar />
         {children}
-        <Footer />
       </body>
     </html>
   );
