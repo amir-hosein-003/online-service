@@ -1,11 +1,12 @@
-import * as React from "react";
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import {
   Settings,
   Users,
   LayoutDashboard,
   Server,
-  Briefcase,
   GalleryVerticalEnd,
   LogOut,
 } from "lucide-react";
@@ -22,13 +23,13 @@ import {
 
 const menuItems = [
   { title: "داشبورد", url: "/admin", icon: LayoutDashboard },
-  { title: "خدمات", url: "/admin/services", icon: Briefcase },
-  { title: "سرویس‌ها", url: "/admin/services", icon: Server },
+  { title: "خدمات", url: "/admin/services", icon: Server },
   { title: "کاربرها", url: "/admin/users", icon: Users },
   { title: "تنظیمات", url: "/admin/settings", icon: Settings },
 ];
 
-export function AppSidebar({ ...props }) {
+const AppSidebar = ({ ...props }) => {
+  const pathName = usePathname();
   return (
     <Sidebar
       variant="floating"
@@ -62,7 +63,10 @@ export function AppSidebar({ ...props }) {
                 asChild
                 className="h-fit group-data-[collapsible=icon]:p-0"
               >
-                <Link href={item.url} className="flex items-center p-2 gap-3">
+                <Link
+                  href={item.url}
+                  className={`flex items-center p-2 gap-3 ${pathName === item.url && "bg-muted"}`}
+                >
                   <div className="bg-primary text-primary-foreground flex aspect-square size-8 items-center justify-center rounded-md">
                     <item.icon className="size-5" />
                   </div>
@@ -77,18 +81,20 @@ export function AppSidebar({ ...props }) {
         <SidebarMenu>
           <SidebarMenuItem>
             <SidebarMenuButton size="lg" asChild>
-              <a href="#">
+              <Link href="#">
                 <div className="bg-destructive text-sidebar-primary-foreground flex aspect-square size-8 items-center justify-center rounded-md">
                   <LogOut className="size-4" />
                 </div>
                 <div className="flex flex-col gap-0.5 leading-none">
                   <span className="font-medium text-lg">خروج</span>
                 </div>
-              </a>
+              </Link>
             </SidebarMenuButton>
           </SidebarMenuItem>
         </SidebarMenu>
       </SidebarFooter>
     </Sidebar>
   );
-}
+};
+
+export default AppSidebar;

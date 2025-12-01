@@ -2,7 +2,7 @@ import React from 'react'
 
 const page = () => {
   return (
-    <div>admin / services</div>
+    <div className="text-3xl font-bold">خدمات</div>
   )
 }
 
