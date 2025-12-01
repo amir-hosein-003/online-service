@@ -1,6 +1,8 @@
 "use client";
 
 import React from "react";
+import { usePathname } from "next/navigation";
+
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -9,7 +11,6 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
-import { usePathname } from "next/navigation";
 import { t } from "@/lib/dashboardPathObj"
 
 const DashboardBreadcrumb = () => {
