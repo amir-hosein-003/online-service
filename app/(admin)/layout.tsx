@@ -19,12 +19,12 @@ const layout = ({ children }: Props) => {
       }
       dir="rtl"
     >
-      // dashboard sidebar
+       {/* dashboard sidebar */}
       <AppSidebar />
       <SidebarInset className="mr-4">
-        // dashboard header
+         {/* dashboard header */}
         <DashboardHeader />
-        // dashboard content
+         {/* dashboard content */}
         <ScrollArea
           dir="rtl"
           className="max-h-[calc(100vh-120px)] flex flex-1 flex-col gap-4 p-4 bg-sidebar mx-4 mb-6 rounded-lg shadow"
