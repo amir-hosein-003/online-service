@@ -2,7 +2,7 @@ import _ from 'lodash';
 
 const dashboardPath = {
   admin: "داشبورد",
-  users: "کاربرها",
+  users: "کاربران",
   services: "خدمات",
   settings: "تنظیمات",
 };

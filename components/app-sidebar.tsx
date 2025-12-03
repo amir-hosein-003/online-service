@@ -24,7 +24,7 @@ import {
 const menuItems = [
   { title: "داشبورد", url: "/admin", icon: LayoutDashboard },
   { title: "خدمات", url: "/admin/services", icon: Server },
-  { title: "کاربرها", url: "/admin/users", icon: Users },
+  { title: "کاربران", url: "/admin/users", icon: Users },
   { title: "تنظیمات", url: "/admin/settings", icon: Settings },
 ];
 
