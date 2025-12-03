@@ -29,7 +29,7 @@ const Services = () => {
         <div className="">
           <Link
             href="/services"
-            className="group btn btn-primary btn-lg w-42 rounded-l-3xl rounded-t-3xl"
+            className="group bg-primary text-primary-content text-lg flex flex-row items-center justify-center font-semibold gap-2 h-12 w-42 rounded-l-3xl rounded-t-3xl"
           >
             کل خدمات
             <Icon
