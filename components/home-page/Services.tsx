@@ -21,18 +21,20 @@ const Services = () => {
   return (
     <section className="container mx-auto bg-base-200 rounded-md p-16">
       <div className=""></div>
-      <div className="flex flex-row items-center justify-center gap-6">
-        <h3 className="text-3xl font-bold text-center">خدمات</h3>
+      <div className="flex flex-row items-end justify-center gap-2">
+        <h3 className="text-3xl h-12 font-bold text-center bg-primary text-primary-content rounded-r-3xl rounded-t-3xl px-8 py-2">
+          خدمات
+        </h3>
         <div className="w-full h-0.5 bg-base-content/50" />
-        <div className="btn btn-ghost rounded-md">
+        <div className="">
           <Link
             href="/services"
-            className="group flex flex-row items-center font-bold"
+            className="group btn btn-primary btn-lg w-42 rounded-l-3xl rounded-t-3xl"
           >
             کل خدمات
             <Icon
               icon="ph:arrow-left"
-              className="group-hover:opacity-100 group-hover:-translate-x-2 duration-300 translate-x-2 opacity-0"
+              className="group-hover:-translate-x-2 duration-300"
               width="20"
               height="20"
             />
