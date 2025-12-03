@@ -1,6 +1,8 @@
+import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+
+import ActiveLink from "./ui/activeLink";
 
 type Menu = {
   title: string;
@@ -9,9 +11,9 @@ type Menu = {
 
 const menuLinks: Menu[] = [
   { title: "خانه", url: "/" },
-  { title: "خدمات", url: "/" },
-  { title: "درباره‌ما", url: "/" },
-  { title: "پشتیبانی", url: "/" },
+  { title: "خدمات", url: "/services" },
+  { title: "درباره‌ما", url: "/about" },
+  { title: "پشتیبانی", url: "/support" },
 ];
 
 const Navbar = () => {
@@ -20,9 +22,9 @@ const Navbar = () => {
       <div className="w-full grid grid-cols-3">
         <div className="flex flex-row items-center gap-6">
           {menuLinks.map((link: Menu, index: number) => (
-            <Link key={index} href={link.url}>
-              {link.title}
-            </Link>
+            <ActiveLink key={index} href={link.url}>
+              <p>{link.title}</p>
+            </ActiveLink>
           ))}
         </div>
         <div className="flex items-center justify-center">
