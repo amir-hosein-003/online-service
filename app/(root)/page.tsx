@@ -1,12 +1,12 @@
-import React, { Fragment } from "react";
+import { Fragment } from "react";
 
-import Benefits from "@/components/home-page/Benefits";
-import Contact from "@/components/home-page/Contact";
-import FAQ from "@/components/home-page/FAQ";
 import HeroSection from "@/components/home-page/HeroSection";
 import Services from "@/components/home-page/Services";
-import UserComments from "@/components/home-page/UserComments";
+import Benefits from "@/components/home-page/Benefits";
 import WorkSteps from "@/components/home-page/WorkSteps";
+import UserComments from "@/components/home-page/UserComments";
+import FAQ from "@/components/home-page/FAQ";
+import Contact from "@/components/home-page/Contact";
 
 const Home = () => {
   return (

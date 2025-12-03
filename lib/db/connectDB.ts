@@ -1,8 +1,10 @@
 import mongoose from "mongoose";
 
-const MONGO_URI = process.env.MONGODB_URI || "mongodb://localhost:27017/onlineService";
+const MONGO_URI =
+  process.env.MONGODB_URI || "mongodb://localhost:27017/onlineService";
 
 export const connectDB = async (): Promise<void> => {
+  if (mongoose.connection.readyState >= 1) return;
   try {
     await mongoose.connect(MONGO_URI);
     console.log("✅ MongoDB connected");
