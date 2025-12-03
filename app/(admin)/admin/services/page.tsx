@@ -1,9 +1,11 @@
-import React from 'react'
+import React from "react";
 
-const page = () => {
+const DServicesPage = () => {
   return (
-    <div className="text-3xl font-bold">خدمات</div>
-  )
-}
+    <div className="text-3xl font-bold">
+      <div className=""></div>
+    </div>
+  );
+};
 
-export default page
+export default DServicesPage;

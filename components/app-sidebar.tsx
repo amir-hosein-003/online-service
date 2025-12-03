@@ -82,6 +82,18 @@ const AppSidebar = ({ ...props }) => {
           <SidebarMenuItem>
             <SidebarMenuButton size="lg" asChild>
               <Link href="#">
+                <div className="bg-primary text-sidebar-primary-foreground flex aspect-square size-8 items-center justify-center rounded-full">
+                  a
+                </div>
+                <div className="flex flex-col gap-0.5 leading-none">
+                  <span className="font-medium text-lg">امیرحسین کنعانی</span>
+                </div>
+              </Link>
+            </SidebarMenuButton>
+          </SidebarMenuItem>
+          <SidebarMenuItem>
+            <SidebarMenuButton size="lg" asChild>
+              <Link href="#">
                 <div className="bg-destructive text-sidebar-primary-foreground flex aspect-square size-8 items-center justify-center rounded-md">
                   <LogOut className="size-4" />
                 </div>
