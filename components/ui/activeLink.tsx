@@ -12,14 +12,15 @@ interface Props {
 
 const ActiveLink = ({ children, href, className }: Props) => {
   const pathName = usePathname();
+  const isActive = pathName === href || pathName.startsWith(`${href}/`);
   return (
     <Link
       href={href}
-      className={`group flex flex-col items-center justify-between gap-2 w-18 ${pathName.startsWith(href) && "text-primary"} ${className}`}
+      className={`group flex flex-col items-center justify-between gap-2 w-18 ${isActive ? "text-primary" : ""} ${className}`}
     >
       {children}
       <span
-        className={`h-[3px] w-0 group-hover:w-full bg-primary transition-all duration-300 ${pathName.startsWith(href) && "w-full"}`}
+        className={`h-[3px] w-0 group-hover:w-full bg-primary transition-all duration-300 ${isActive ? "w-full" : ""}`}
       />
     </Link>
   );
