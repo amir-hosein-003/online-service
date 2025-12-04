@@ -65,9 +65,11 @@ const AppSidebar = ({ ...props }) => {
               >
                 <Link
                   href={item.url}
-                  className={`flex items-center p-2 gap-3 ${pathName === item.url && "bg-muted"}`}
+                  className={`flex items-center p-2 gap-3 ${pathName === item.url && "bg-primary text-primary-content"}`}
                 >
-                  <div className="bg-primary text-primary-foreground flex aspect-square size-8 items-center justify-center rounded-md">
+                  <div
+                    className={`flex aspect-square size-8 items-center justify-center rounded-md ${pathName === item.url ? "text-primary-content" : "text-primary"}`}
+                  >
                     <item.icon className="size-5" />
                   </div>
                   <span className="text-lg">{item.title}</span>
@@ -93,12 +95,12 @@ const AppSidebar = ({ ...props }) => {
           </SidebarMenuItem>
           <SidebarMenuItem>
             <SidebarMenuButton size="lg" asChild>
-              <Link href="#">
-                <div className="bg-destructive text-sidebar-primary-foreground flex aspect-square size-8 items-center justify-center rounded-md">
+              <Link href="#" className="text-destructive">
+                <div className="flex aspect-square size-8 items-center justify-center rounded-md">
                   <LogOut className="size-4" />
                 </div>
                 <div className="flex flex-col gap-0.5 leading-none">
-                  <span className="font-medium text-lg">خروج</span>
+                  <span className="font-medium">خروج</span>
                 </div>
               </Link>
             </SidebarMenuButton>

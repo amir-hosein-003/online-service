@@ -144,6 +144,7 @@ const AddServiceModal = ({ children }: Props) => {
               )}
             />
 
+            {/* <DialogClose asChild> */}
             <button
               type="submit"
               className="btn btn-primary btn-block rounded-lg mt-2"
@@ -152,6 +153,7 @@ const AddServiceModal = ({ children }: Props) => {
               {isPending && <div className="loading loading-spinner" />}
               افزودن
             </button>
+            {/* </DialogClose> */}
           </form>
         </Form>
       </DialogContent>
