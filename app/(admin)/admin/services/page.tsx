@@ -15,6 +15,7 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { getServicesList } from "@/lib/actions/services/getServicesList";
+import AddFormFieldModal from "@/components/admin/services/AddFormFieldModal";
 
 const DServicesPage = async () => {
   const { message, data } = await getServicesList();
@@ -62,7 +63,11 @@ const DServicesPage = async () => {
                     {service.isActive ? "فعال" : "غیرفعال"}
                   </TableCell>
                   <TableCell>
-                    <PlusIcon size="20" className="mx-auto" />
+                    <div className="text-center">
+                      <AddFormFieldModal serviceId={service._id as string}>
+                        <PlusIcon size="20" className="mx-auto" />
+                      </AddFormFieldModal>
+                    </div>
                   </TableCell>
                   <TableCell>
                     <PlusIcon size="20" className="mx-auto" />
