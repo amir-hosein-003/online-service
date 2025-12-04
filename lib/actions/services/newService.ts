@@ -7,6 +7,7 @@ import {
   ServiceFormFields,
   serviceSchema,
 } from "@/lib/validations/addServiceSchema";
+import { revalidatePath } from "next/cache";
 
 export async function newService(
   prevState: ActionData,
@@ -36,6 +37,8 @@ export async function newService(
       description: result.data.description,
       price: result.data.price,
     });
+
+    revalidatePath("/admin/services");
 
     return {
       message: "SUCCESS",

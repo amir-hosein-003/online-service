@@ -2,7 +2,6 @@
 
 import React, { startTransition, useActionState, useEffect } from "react";
 import { useForm } from "react-hook-form";
-import Cleave from "cleave.js/react";
 import { zodResolver } from "@hookform/resolvers/zod";
 
 import {
@@ -29,12 +28,7 @@ import {
   serviceSchema,
 } from "@/lib/validations/addServiceSchema";
 import { newService } from "@/lib/actions/services/newService";
-import { cn } from "@/lib/utils";
 import { CleaveInput } from "@/components/ui/CleaveInput";
-
-interface CleaveInputElement extends HTMLInputElement {
-  rawValue: string;
-}
 
 const initialState = {
   message: "",
@@ -144,6 +138,7 @@ const AddServiceModal = ({ children }: Props) => {
               )}
             />
 
+            {/* <DialogClose asChild> */}
             <button
               type="submit"
               className="btn btn-primary btn-block rounded-lg mt-2"
@@ -152,6 +147,7 @@ const AddServiceModal = ({ children }: Props) => {
               {isPending && <div className="loading loading-spinner" />}
               افزودن
             </button>
+            {/* </DialogClose> */}
           </form>
         </Form>
       </DialogContent>
