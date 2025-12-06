@@ -24,8 +24,8 @@ export async function newService(
     };
   }
 
-  const exists = await serviceModel.findOne({ name: result.data.name });
-  if (exists) {
+  const foundService = await serviceModel.findOne({ name: result.data.name });
+  if (foundService) {
     return {
       message: "ERROR",
       errors: ["سرویسی با این نام قبلاً ثبت شده است."],

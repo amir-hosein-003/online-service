@@ -37,13 +37,11 @@ export async function newSelectBox(
   }
 
   try {
-    const updatedService = await serviceModel.findByIdAndUpdate(serviceId, {
+    await serviceModel.findByIdAndUpdate(serviceId, {
       $push: {
         selectBox: result.data,
       },
     });
-
-    console.log(updatedService);
 
     return {
       message: "SUCCESS",
