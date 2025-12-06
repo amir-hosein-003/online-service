@@ -1,8 +1,10 @@
 "use client";
 
-import Cleave from "cleave.js/react";
 import React from "react";
+import Cleave from "cleave.js/react";
+
 import { cn } from "@/lib/utils";
+import { CleaveOptions } from "cleave.js/options";
 
 interface CleaveInputElement extends HTMLInputElement {
   rawValue: string;
@@ -10,7 +12,7 @@ interface CleaveInputElement extends HTMLInputElement {
 
 interface CleaveInputProps
   extends Omit<React.InputHTMLAttributes<HTMLInputElement>, "onChange"> {
-  options?: any;
+  options: CleaveOptions;
   onChange?: (value: string) => void;
 }
 

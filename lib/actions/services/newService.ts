@@ -1,13 +1,14 @@
 "use server";
 
+import { revalidatePath } from "next/cache";
+
 import { ActionData } from "@/lib/actionData";
 import { connectDB } from "@/lib/db/connectDB";
 import serviceModel from "@/lib/db/models/serviceModel";
 import {
   ServiceFormFields,
   serviceSchema,
-} from "@/lib/validations/addServiceSchema";
-import { revalidatePath } from "next/cache";
+} from "@/lib/validations/services/addServiceSchema";
 
 export async function newService(
   prevState: ActionData,

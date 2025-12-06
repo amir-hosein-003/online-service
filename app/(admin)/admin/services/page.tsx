@@ -16,6 +16,8 @@ import {
 } from "@/components/ui/tooltip";
 import { getServicesList } from "@/lib/actions/services/getServicesList";
 import AddFormFieldModal from "@/components/admin/services/AddFormFieldModal";
+import AddSelectBoxFields from "@/components/admin/services/AddSelectBoxFields";
+import ServiceActivatorBtn from "@/components/admin/services/ServiceActivatorBtn";
 
 const DServicesPage = async () => {
   const { message, data } = await getServicesList();
@@ -60,17 +62,24 @@ const DServicesPage = async () => {
                   <TableCell
                     className={`text-center ${service.isActive ? "text-success" : "text-destructive"}`}
                   >
-                    {service.isActive ? "فعال" : "غیرفعال"}
+                    <ServiceActivatorBtn
+                      isActive={service.isActive}
+                      serviceId={String(service._id)}
+                    />
                   </TableCell>
                   <TableCell>
                     <div className="text-center">
-                      <AddFormFieldModal serviceId={service._id as string}>
+                      <AddFormFieldModal serviceId={String(service._id)}>
                         <PlusIcon size="20" className="mx-auto" />
                       </AddFormFieldModal>
                     </div>
                   </TableCell>
                   <TableCell>
-                    <PlusIcon size="20" className="mx-auto" />
+                    <div className="text-center">
+                      <AddSelectBoxFields serviceId={String(service._id)}>
+                        <PlusIcon size="20" className="mx-auto" />
+                      </AddSelectBoxFields>
+                    </div>
                   </TableCell>
                 </TableRow>
               ))

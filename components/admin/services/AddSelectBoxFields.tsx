@@ -22,11 +22,12 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import { CleaveInput } from "@/components/ui/CleaveInput";
 import {
-  NewFormField,
-  newFormFieldSchema,
-} from "@/lib/validations/services/newFormFieldSchema";
-import { newFormField } from "@/lib/actions/services/newFormField";
+  NewSelectBoxFields,
+  newSelectBoxSchema,
+} from "@/lib/validations/services/newSelectBoxField";
+import { newSelectBox } from "@/lib/actions/services/newSelectBoxField";
 
 const initialState = {
   message: "",
@@ -38,21 +39,21 @@ interface Props {
   serviceId: string;
 }
 
-const AddFormFieldModal = ({ children, serviceId }: Props) => {
+const AddSelectBoxFields = ({ children, serviceId }: Props) => {
   const [state, formAction, isPending] = useActionState(
-    newFormField,
+    newSelectBox,
     initialState
   );
-
-  const form = useForm<NewFormField>({
-    resolver: zodResolver(newFormFieldSchema),
+  const form = useForm<NewSelectBoxFields>({
+    resolver: zodResolver(newSelectBoxSchema),
     defaultValues: {
-      title: "",
-      placeholder: "",
+      option: "",
+      value: "",
+      price: "",
     },
   });
 
-  const onSubmit = (data: NewFormField) => {
+  const onSubmit = (data: NewSelectBoxFields) => {
     startTransition(() => {
       formAction({ ...data, serviceId });
     });
@@ -70,9 +71,9 @@ const AddFormFieldModal = ({ children, serviceId }: Props) => {
       <DialogClose className="text-left" />
       <DialogContent dir="rtl">
         <DialogHeader dir="rtl">
-          <DialogTitle className="text-right">فیلد جدید</DialogTitle>
+          <DialogTitle className="text-right">سلکت باکس جدید</DialogTitle>
           <DialogDescription className="text-right">
-            برای افزودن فیلد اقدام کنید
+            برای افزودن سلکت باکس اقدام کنید
           </DialogDescription>
         </DialogHeader>
         <div className="divider my-0" />
@@ -80,14 +81,14 @@ const AddFormFieldModal = ({ children, serviceId }: Props) => {
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
             <FormField
               control={form.control}
-              name="title"
+              name="option"
               render={({ field }) => (
                 <FormItem className="relative">
                   <FormLabel className="absolute -top-4 right-3 bg-base-100 rounded-sm p-2">
-                    نام سرویس
+                    آپشن
                   </FormLabel>
                   <FormControl>
-                    <Input placeholder="عنوان فیلد" {...field} />
+                    <Input placeholder="عنوان آپشن" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -95,14 +96,37 @@ const AddFormFieldModal = ({ children, serviceId }: Props) => {
             />
             <FormField
               control={form.control}
-              name="placeholder"
+              name="value"
               render={({ field }) => (
                 <FormItem className="relative">
                   <FormLabel className="absolute -top-4 right-3 bg-base-100 rounded-sm p-2">
-                    متن نشانگر
+                    مقدار
                   </FormLabel>
                   <FormControl>
-                    <Input placeholder="متن نشانگر" {...field} />
+                    <Input placeholder="مقدار" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="price"
+              render={({ field }) => (
+                <FormItem className="relative">
+                  <FormLabel className="absolute -top-4 right-3 bg-base-100 rounded-sm p-2">
+                    قیمت
+                  </FormLabel>
+                  <FormControl>
+                    <CleaveInput
+                      placeholder="قیمت"
+                      value={field.value}
+                      onChange={(v) => field.onChange(v)}
+                      options={{
+                        numeral: true,
+                        numeralThousandsGroupStyle: "thousand", // 1,000,000
+                      }}
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -126,4 +150,4 @@ const AddFormFieldModal = ({ children, serviceId }: Props) => {
   );
 };
 
-export default AddFormFieldModal;
+export default AddSelectBoxFields;

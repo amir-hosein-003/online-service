@@ -12,7 +12,7 @@ export const serviceSchema = z.object({
     .nonempty("وارد کردن توضیحات الزامی است."),
 
   price: z
-    .string() // مقدار ورودی string را به number تبدیل می‌کند
+    .string()
     .min(4, { message: "قیمت باید حداقل ۱۰۰۰ تومان باشد." }),
 });
 

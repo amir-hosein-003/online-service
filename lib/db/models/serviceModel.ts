@@ -6,7 +6,7 @@ type ServiceFormFields = {
 };
 
 type ServiceSelectBox = {
-  title: string;
+  option: string;
   value: string;
   price: string;
 };
@@ -38,7 +38,7 @@ const serviceSchema = new Schema<ServiceInterface & Document>(
     selectBox: {
       type: [
         {
-          title: { type: String, required: true },
+          option: { type: String, required: true },
           value: { type: String, required: true },
           price: { type: String, required: true },
         },

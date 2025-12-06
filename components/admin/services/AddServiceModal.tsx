@@ -26,7 +26,7 @@ import { Textarea } from "@/components/ui/textarea";
 import {
   ServiceFormFields,
   serviceSchema,
-} from "@/lib/validations/addServiceSchema";
+} from "@/lib/validations/services/addServiceSchema";
 import { newService } from "@/lib/actions/services/newService";
 import { CleaveInput } from "@/components/ui/CleaveInput";
 
@@ -62,7 +62,7 @@ const AddServiceModal = ({ children }: Props) => {
 
   useEffect(() => {
     if (state.message === "SUCCESS") form.reset();
-  }, [state]);
+  }, [state, form]);
 
   return (
     <Dialog>
