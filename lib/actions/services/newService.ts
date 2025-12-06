@@ -1,13 +1,14 @@
 "use server";
 
+import { revalidatePath } from "next/cache";
+
 import { ActionData } from "@/lib/actionData";
 import { connectDB } from "@/lib/db/connectDB";
 import serviceModel from "@/lib/db/models/serviceModel";
 import {
   ServiceFormFields,
   serviceSchema,
-} from "@/lib/validations/addServiceSchema";
-import { revalidatePath } from "next/cache";
+} from "@/lib/validations/services/addServiceSchema";
 
 export async function newService(
   prevState: ActionData,
@@ -23,8 +24,8 @@ export async function newService(
     };
   }
 
-  const exists = await serviceModel.findOne({ name: result.data.name });
-  if (exists) {
+  const foundService = await serviceModel.findOne({ name: result.data.name });
+  if (foundService) {
     return {
       message: "ERROR",
       errors: ["سرویسی با این نام قبلاً ثبت شده است."],

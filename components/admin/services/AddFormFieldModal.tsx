@@ -22,13 +22,11 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import {
-  ServiceFormFields,
-  serviceSchema,
-} from "@/lib/validations/services/addServiceSchema";
-import { newService } from "@/lib/actions/services/newService";
-import { CleaveInput } from "@/components/ui/CleaveInput";
+  NewFormField,
+  newFormFieldSchema,
+} from "@/lib/validations/services/newFormFieldSchema";
+import { newFormField } from "@/lib/actions/services/newFormField";
 
 const initialState = {
   message: "",
@@ -37,26 +35,26 @@ const initialState = {
 
 interface Props {
   children: React.ReactNode;
+  serviceId: string;
 }
 
-const AddServiceModal = ({ children }: Props) => {
+const AddFormFieldModal = ({ children, serviceId }: Props) => {
   const [state, formAction, isPending] = useActionState(
-    newService,
+    newFormField,
     initialState
   );
 
-  const form = useForm<ServiceFormFields>({
-    resolver: zodResolver(serviceSchema),
+  const form = useForm<NewFormField>({
+    resolver: zodResolver(newFormFieldSchema),
     defaultValues: {
-      name: "",
-      price: "",
-      description: "",
+      title: "",
+      placeholder: "",
     },
   });
 
-  const onSubmit = (data: ServiceFormFields) => {
+  const onSubmit = (data: NewFormField) => {
     startTransition(() => {
-      formAction(data);
+      formAction({ ...data, serviceId });
     });
   };
 
@@ -72,9 +70,9 @@ const AddServiceModal = ({ children }: Props) => {
       <DialogClose className="text-left" />
       <DialogContent dir="rtl">
         <DialogHeader dir="rtl">
-          <DialogTitle className="text-right">سرویس جدید</DialogTitle>
+          <DialogTitle className="text-right">فیلد جدید</DialogTitle>
           <DialogDescription className="text-right">
-            افزودن سرویس جدید با چند کلیک، سریع و آسان برای مدیریت کارها.
+            برای افزودن فیلد اقدام کنید
           </DialogDescription>
         </DialogHeader>
         <div className="divider my-0" />
@@ -82,14 +80,14 @@ const AddServiceModal = ({ children }: Props) => {
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
             <FormField
               control={form.control}
-              name="name"
+              name="title"
               render={({ field }) => (
                 <FormItem className="relative">
                   <FormLabel className="absolute -top-4 right-3 bg-base-100 rounded-sm p-2">
                     نام سرویس
                   </FormLabel>
                   <FormControl>
-                    <Input placeholder="نام سرویس" {...field} />
+                    <Input placeholder="عنوان فیلد" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -97,41 +95,14 @@ const AddServiceModal = ({ children }: Props) => {
             />
             <FormField
               control={form.control}
-              name="price"
+              name="placeholder"
               render={({ field }) => (
                 <FormItem className="relative">
                   <FormLabel className="absolute -top-4 right-3 bg-base-100 rounded-sm p-2">
-                    قیمت
+                    متن نشانگر
                   </FormLabel>
                   <FormControl>
-                    <CleaveInput
-                      placeholder="قیمت"
-                      value={field.value}
-                      onChange={(v) => field.onChange(v)}
-                      options={{
-                        numeral: true,
-                        numeralThousandsGroupStyle: "thousand", // 1,000,000
-                      }}
-                    />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name="description"
-              render={({ field }) => (
-                <FormItem className="relative">
-                  <FormLabel className="absolute -top-4 right-3 bg-base-100 rounded-sm p-2">
-                    توضیحات
-                  </FormLabel>
-                  <FormControl>
-                    <Textarea
-                      placeholder="توضیحات"
-                      className="min-h-24"
-                      {...field}
-                    />
+                    <Input placeholder="متن نشانگر" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -155,4 +126,4 @@ const AddServiceModal = ({ children }: Props) => {
   );
 };
 
-export default AddServiceModal;
+export default AddFormFieldModal;
