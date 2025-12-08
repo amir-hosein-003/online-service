@@ -2,13 +2,8 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import {
-  Settings,
-  Users,
-  LayoutDashboard,
-  Server,
-  LogOut,
-} from "lucide-react";
+import { Settings, Users, LayoutDashboard, Server, LogOut } from "lucide-react";
+import Image from "next/image";
 
 import {
   Sidebar,
@@ -19,7 +14,6 @@ import {
   SidebarHeader,
   SidebarFooter,
 } from "@/components/ui/sidebar";
-import Image from "next/image";
 
 const menuItems = [
   { title: "داشبورد", url: "/admin", icon: LayoutDashboard },
