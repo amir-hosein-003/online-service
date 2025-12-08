@@ -7,7 +7,6 @@ import {
   Users,
   LayoutDashboard,
   Server,
-  GalleryVerticalEnd,
   LogOut,
 } from "lucide-react";
 
@@ -20,6 +19,7 @@ import {
   SidebarHeader,
   SidebarFooter,
 } from "@/components/ui/sidebar";
+import Image from "next/image";
 
 const menuItems = [
   { title: "داشبورد", url: "/admin", icon: LayoutDashboard },
@@ -43,9 +43,16 @@ const AppSidebar = ({ ...props }) => {
           <SidebarMenuItem>
             <SidebarMenuButton size="lg" asChild>
               <Link href="/">
-                <div className="bg-sidebar-primary text-sidebar-primary-foreground flex aspect-square size-8 items-center justify-center rounded-md">
+                {/* <div className="bg-sidebar-primary text-sidebar-primary-foreground flex aspect-square size-8 items-center justify-center rounded-md">
                   <GalleryVerticalEnd className="size-4" />
-                </div>
+                </div> */}
+                <Image
+                  src="/images/logo.png"
+                  alt="logo"
+                  width={400}
+                  height={400}
+                  className="size-8"
+                />
                 <div className="flex flex-col gap-0.5 leading-none">
                   <span className="font-semibold text-lg">خدمات اینترنتی</span>
                 </div>
