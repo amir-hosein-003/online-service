@@ -7,6 +7,7 @@ import {
   NewSelectBoxFields,
   newSelectBoxSchema,
 } from "@/lib/validations/services/newSelectBoxField";
+import { revalidatePath } from "next/cache";
 
 interface FormFields extends NewSelectBoxFields {
   serviceId: string;
@@ -42,6 +43,8 @@ export async function newSelectBox(
         selectBox: result.data,
       },
     });
+
+    revalidatePath("/admin/services");
 
     return {
       message: "SUCCESS",

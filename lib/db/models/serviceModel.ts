@@ -1,6 +1,6 @@
 import mongoose, { Schema } from "mongoose";
 
-type ServiceFormFields = {
+export type ServiceFormFields = {
   title: string;
   placeholder: string;
 };

@@ -1,5 +1,7 @@
 "use server";
 
+import { revalidatePath } from "next/cache";
+
 import { ActionData } from "@/lib/actionData";
 import { connectDB } from "@/lib/db/connectDB";
 import serviceModel from "@/lib/db/models/serviceModel";
@@ -37,13 +39,13 @@ export async function newFormField(
   }
 
   try {
-    const updatedService = await serviceModel.findByIdAndUpdate(serviceId, {
+    await serviceModel.findByIdAndUpdate(serviceId, {
       $push: {
         formFields: result.data,
       },
     });
 
-    console.log(updatedService);
+    revalidatePath("/admin/services");
 
     return {
       message: "SUCCESS",
