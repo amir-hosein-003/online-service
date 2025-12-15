@@ -19,7 +19,6 @@ import AddSelectBoxFields from "@/components/admin/services/AddSelectBoxFields";
 import ServiceActivatorBtn from "@/components/admin/services/ServiceActivatorBtn";
 import ShowFormFieldModal from "@/components/admin/services/ShowFormFieldsModal";
 import ShowSelectBoxFields from "@/components/admin/services/ShowSelectBoxFields";
-import { ServiceFormFields } from "@/lib/db/models/serviceModel";
 
 const DServicesPage = async () => {
   const { message, data } = await getServicesList();
