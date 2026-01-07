@@ -23,7 +23,7 @@ const HeroSection = () => {
           </div>
         </div>
         <Image
-          src="/images/hero-1.png"
+          src="/images/hero.png"
           draggable={false}
           alt="hero"
           width={600}
