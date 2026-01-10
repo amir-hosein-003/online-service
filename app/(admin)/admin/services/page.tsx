@@ -53,7 +53,7 @@ const DServicesPage = async () => {
                           : service.description}
                       </p>
                     </TooltipTrigger>
-                    <TooltipContent className="max-w-xs">
+                    <TooltipContent className="w-fit">
                       {service.description}
                     </TooltipContent>
                   </Tooltip>

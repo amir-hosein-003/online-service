@@ -37,7 +37,7 @@ const ShowFormFieldModal = ({ children, formFields }: Props) => {
                 <label className="text-xs absolute -top-4 right-3 bg-base-100 rounded-sm p-2">
                   {field.title}
                 </label>
-                <Input placeholder={field.placeholder} />
+                <Input placeholder={field.placeholder} readOnly />
               </div>
             ))
           ) : (
