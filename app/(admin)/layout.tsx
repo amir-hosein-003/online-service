@@ -1,15 +1,20 @@
+"use client";
+
 import React from "react";
 
 import AppSidebar from "@/components/app-sidebar";
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import DashboardHeader from "@/components/admin/DashboardHeader";
+import { usePathname } from "next/navigation";
 
 interface Props {
   children: React.ReactNode;
 }
 
 const layout = ({ children }: Props) => {
+  const pathname = usePathname();
+
   return (
     <SidebarProvider
       style={
@@ -27,7 +32,7 @@ const layout = ({ children }: Props) => {
         {/* dashboard content */}
         <ScrollArea
           dir="rtl"
-          className="max-h-[calc(100vh-120px)] flex flex-1 flex-col gap-4 mx-4 mb-6 rounded-lg shadow"
+          className={`max-h-[calc(100vh-120px)] flex flex-1 flex-col gap-4 mx-4 mb-6 ${pathname.includes("services") && "rounded-lg shadow"}`}
         >
           {children}
         </ScrollArea>
