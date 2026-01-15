@@ -32,7 +32,7 @@ const layout = ({ children }: Props) => {
         {/* dashboard content */}
         <ScrollArea
           dir="rtl"
-          className={`max-h-[calc(100vh-120px)] flex flex-1 flex-col gap-4 mx-4 mb-6 ${pathname.includes("services") && "rounded-lg shadow"}`}
+          className={`max-h-[calc(100vh-120px)] flex flex-1 flex-col gap-4 mx-4 mb-6 rounded-lg ${pathname.includes("services") && "shadow"}`}
         >
           {children}
         </ScrollArea>
