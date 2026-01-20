@@ -2,18 +2,11 @@
 
 import React from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
-
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
 import { useForm } from "react-hook-form";
+
+import { Form } from "@/components/ui/form";
 import SuccessMessage from "@/components/SuccessMessage";
+import FormInput from "@/components/ui/FormInput";
 
 const AccountSettings = () => {
   const form = useForm({
@@ -30,6 +23,7 @@ const AccountSettings = () => {
 
   const onSubmit = (data: any) => {
     console.log(data);
+    form.reset();
   };
   return (
     <section className="bg-base-200 rounded-lg p-6">
@@ -40,120 +34,42 @@ const AccountSettings = () => {
           <div className="flex flex-row gap-6">
             <div className="w-full space-y-6">
               <div className="grid grid-cols-2 gap-6">
-                <FormField
+                <FormInput
                   control={form.control}
                   name="firstName"
-                  render={({ field }) => (
-                    <FormItem className="relative">
-                      <FormLabel className="absolute -top-4 right-3 bg-base-100 rounded-sm p-2">
-                        نام
-                      </FormLabel>
-                      <FormControl>
-                        <Input
-                          className="bg-base-100"
-                          placeholder="نام"
-                          {...field}
-                        />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
+                  label="نام"
+                  placeholder="نام"
                 />
-                <FormField
+                <FormInput
                   control={form.control}
                   name="lastName"
-                  render={({ field }) => (
-                    <FormItem className="relative">
-                      <FormLabel className="absolute -top-4 right-3 bg-base-100 rounded-sm p-2">
-                        نام‌خانوادگی
-                      </FormLabel>
-                      <FormControl>
-                        <Input
-                          className="bg-base-100"
-                          placeholder="نام‌خانوادگی"
-                          {...field}
-                        />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
+                  label="نام‌خانوادگی"
+                  placeholder="نام‌خانوادگی"
                 />
-                <FormField
+                <FormInput
                   control={form.control}
                   name="email"
-                  render={({ field }) => (
-                    <FormItem className="relative">
-                      <FormLabel className="absolute -top-4 right-3 bg-base-100 rounded-sm p-2">
-                        ایمیل
-                      </FormLabel>
-                      <FormControl>
-                        <Input
-                          className="bg-base-100"
-                          placeholder="example@gmail.com"
-                          {...field}
-                        />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
+                  label="ایمیل"
+                  placeholder="example@gmail.com"
                 />
-                <FormField
+                <FormInput
                   control={form.control}
                   name="phone"
-                  render={({ field }) => (
-                    <FormItem className="relative">
-                      <FormLabel className="absolute -top-4 right-3 bg-base-100 rounded-sm p-2">
-                        شماره تماس
-                      </FormLabel>
-                      <FormControl>
-                        <Input
-                          className="bg-base-100"
-                          placeholder="09123456789"
-                          {...field}
-                        />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
+                  label="شماره تماس"
+                  placeholder="09123456789"
                 />
               </div>
-              <FormField
+              <FormInput
                 control={form.control}
                 name="address"
-                render={({ field }) => (
-                  <FormItem className="relative">
-                    <FormLabel className="absolute -top-4 right-3 bg-base-100 rounded-sm p-2">
-                      آدرس
-                    </FormLabel>
-                    <FormControl>
-                      <Input
-                        className="bg-base-100"
-                        placeholder="استان، شهر، خیابان، کوچه، پلاک، واحد..."
-                        {...field}
-                      />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
+                label="آدرس"
+                placeholder="استان، شهر، خیابان، کوچه، پلاک، واحد..."
               />
-              <FormField
+              <FormInput
                 control={form.control}
                 name="bio"
-                render={({ field }) => (
-                  <FormItem className="relative">
-                    <FormLabel className="absolute -top-4 right-3 bg-base-100 rounded-sm p-2">
-                      بیوگرافی
-                    </FormLabel>
-                    <FormControl>
-                      <Input
-                        className="bg-base-100"
-                        placeholder="بیوگرافی..."
-                        {...field}
-                      />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
+                label="بیوگرافی"
+                placeholder="بیوگرافی..."
               />
               {/* submit button */}
               <button

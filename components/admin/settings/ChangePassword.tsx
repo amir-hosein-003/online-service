@@ -2,15 +2,10 @@
 
 import React from "react";
 import { useForm } from "react-hook-form";
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
+
+import { Form } from "@/components/ui/form";
+import FormInput from "@/components/ui/FormInput";
+import SuccessMessage from "@/components/SuccessMessage";
 
 const ChangePassword = () => {
   const form = useForm({
@@ -23,6 +18,7 @@ const ChangePassword = () => {
 
   const onSubmit = (data: any) => {
     console.log(data);
+    form.reset();
   };
   return (
     <section className="p-8">
@@ -30,58 +26,35 @@ const ChangePassword = () => {
       <div className="divider" />
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 mt-8">
-          <FormField
+          <FormInput
             control={form.control}
             name="current"
-            render={({ field }) => (
-              <FormItem className="relative">
-                <FormLabel className="absolute -top-4 right-3 bg-base-100 rounded-sm p-2">
-                  رمزعبور فعلی
-                </FormLabel>
-                <FormControl>
-                  <Input type="password" className="bg-base-100" {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
+            label="رمزعبور فعلی"
+            isPassword
           />
-          <FormField
+          <FormInput
             control={form.control}
             name="new"
-            render={({ field }) => (
-              <FormItem className="relative">
-                <FormLabel className="absolute -top-4 right-3 bg-base-100 rounded-sm p-2">
-                  رمزعبور جدید
-                </FormLabel>
-                <FormControl>
-                  <Input type="password" className="bg-base-100" {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
+            label="رمزعبور جدید"
+            isPassword
           />
-          <FormField
+          <FormInput
             control={form.control}
             name="confirm"
-            render={({ field }) => (
-              <FormItem className="relative">
-                <FormLabel className="absolute -top-4 right-3 bg-base-100 rounded-sm p-2">
-                  تکرار رمزعبور
-                </FormLabel>
-                <FormControl>
-                  <Input type="password" className="bg-base-100" {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
+            label="تکرار رمزعبور"
+            isPassword
           />
 
           <button
             type="submit"
-            className="btn btn-primary btn-block rounded-lg mt-2"
+            className="btn btn-primary btn-block rounded-lg"
           >
             تغییر رمزعبور
           </button>
+          <SuccessMessage
+            title="سربرگ تستی"
+            message="متن تستی برای تست متن موفق"
+          />
         </form>
       </Form>
     </section>
