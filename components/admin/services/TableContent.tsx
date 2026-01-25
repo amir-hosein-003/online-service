@@ -1,19 +1,19 @@
 "use client";
 
 import React from "react";
-import {
-  TableCell,
-  TableRow,
-} from "@/components/ui/table";
+import { EyeIcon, PlusIcon } from "lucide-react";
+
+import { TableCell, TableRow } from "@/components/ui/table";
 import { Input } from "@/components/ui/input";
 import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import { useServices } from "@/context/ServicesContext";
+
 import ServiceActivatorBtn from "./ServiceActivatorBtn";
 import AddFormFieldModal from "./AddFormFieldModal";
-import { EyeIcon, PlusIcon } from "lucide-react";
 import ShowFormFieldModal from "./ShowFormFieldsModal";
 import AddSelectBoxFields from "./AddSelectBoxFields";
 import ShowSelectBoxFields from "./ShowSelectBoxFields";
@@ -24,13 +24,19 @@ interface Props {
 }
 
 const TableContent = ({ service, index }: Props) => {
+  const { setIds } = useServices();
+
+  const addServicesIdHandler = (id: string) => {
+    setIds((prev) => [...prev, id]);
+  };
+
   return (
     <TableRow className="h-12">
       <TableCell className="w-[25px] font-medium">
         <Input
           type="checkbox"
           className="w-4 h-4"
-          // onChange={() => alert("changed")}
+          onChange={() => addServicesIdHandler(service._id)}
         />
       </TableCell>
       <TableCell className="w-[25px] font-medium">{index + 1}</TableCell>

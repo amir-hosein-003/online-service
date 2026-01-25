@@ -4,6 +4,7 @@ import { Poppins } from "next/font/google";
 
 import "./globals.css";
 import ToastProvider from "@/components/ToastProvider";
+import { ServicesContextProvider } from "@/context/ServicesContext";
 
 const peyda = localFont({
   src: [
@@ -71,7 +72,7 @@ export default function RootLayout({
         dir="rtl"
         className={`${peyda.variable} ${poppins.variable} antialiased`}
       >
-        {children}
+        <ServicesContextProvider>{children}</ServicesContextProvider>
         <ToastProvider />
       </body>
     </html>

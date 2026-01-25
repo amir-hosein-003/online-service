@@ -2,8 +2,17 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Settings, Users, LayoutDashboard, Server, LogOut } from "lucide-react";
 import Image from "next/image";
+import {
+  Settings,
+  Users,
+  LayoutDashboard,
+  Server,
+  LogOut,
+  Ticket,
+  Coins,
+  ShoppingBag,
+} from "lucide-react";
 
 import {
   Sidebar,
@@ -19,6 +28,9 @@ const menuItems = [
   { title: "داشبورد", url: "/admin", icon: LayoutDashboard },
   { title: "خدمات", url: "/admin/services", icon: Server },
   { title: "کاربران", url: "/admin/users", icon: Users },
+  { title: "سفارشات", url: "/admin/orders", icon: ShoppingBag },
+  { title: "درآمد", url: "/admin/earning", icon: Coins },
+  { title: "تیکت‌ها", url: "/admin/tickets", icon: Ticket },
   { title: "تنظیمات", url: "/admin/settings", icon: Settings },
 ];
 

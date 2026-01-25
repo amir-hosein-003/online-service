@@ -1,12 +1,14 @@
 "use client";
 
 import React from "react";
+import { usePathname } from "next/navigation";
 
 import AppSidebar from "@/components/app-sidebar";
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import DashboardHeader from "@/components/admin/DashboardHeader";
-import { usePathname } from "next/navigation";
+import TrashBox from "@/components/admin/services/TrashBox";
+import { useServices } from "@/context/ServicesContext";
 
 interface Props {
   children: React.ReactNode;
@@ -14,6 +16,7 @@ interface Props {
 
 const layout = ({ children }: Props) => {
   const pathname = usePathname();
+  const { ids } = useServices();
 
   return (
     <SidebarProvider
@@ -29,6 +32,9 @@ const layout = ({ children }: Props) => {
       <SidebarInset className="mr-4">
         {/* dashboard header */}
         <DashboardHeader />
+
+        {ids && pathname.includes("services") ? <TrashBox /> : null}
+
         {/* dashboard content */}
         <ScrollArea
           dir="rtl"
